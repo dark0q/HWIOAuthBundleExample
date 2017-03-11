@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="wrapper">
+        <div id="container">
+            {% if app.user %}
+                You logged as {{ app.user.username }} - <a href="{{ path('fos_user_security_logout') }}">logout</a>
+            {% else %}
+                <a href="{{ path('fos_user_security_login') }}">login</a>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

@@ -77,3 +77,26 @@ fos_user:
         address: '%from_email_address%'
         sender_name: '%from_email_name%'
 
+hwi_oauth:
+    connect:
+        account_connector: my.oauth_aware.user_provider.service
+    fosub:
+        username_iterations: 30
+        properties:
+            my_custom_server_id:    id
+    firewall_names: [ main ]
+    resource_owners:
+        my_custom_server:
+            type:                oauth2
+            client_id:           '%my_custom_server_client_id%'
+            client_secret:       '%my_custom_server_client_secret%'
+            access_token_url:    '%my_custom_server_access_token_url%'
+            authorization_url:   '%my_custom_server_authorization_url%'
+            infos_url:           '%my_custom_server_infos_url%'
+            scope:               "read"
+            user_response_class: HWI\Bundle\OAuthBundle\OAuth\Response\PathUserResponse
+            paths:
+                identifier: id
+                nickname:   username
+                realname:   username
+                email:      email

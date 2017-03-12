@@ -8,6 +8,13 @@
             {% else %}
                 <a href="{{ path('fos_user_security_login') }}">login</a>
             {% endif %}
+
+            {% if data %}
+                <div>
+                    Response form api:
+                    {{ data }}
+                </div>
+            {% endif %}
         </div>
     </div>
 {% endblock %}

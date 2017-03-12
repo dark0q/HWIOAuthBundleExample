@@ -17,6 +17,11 @@ parameters:
 
     from_email_address: ~
     from_email_name: ~
+    my_custom_server_client_id: ~
+    my_custom_server_client_secret: ~
+    my_custom_server_access_token_url: ~
+    my_custom_server_authorization_url: ~
+    my_custom_server_infos_url: ~
 
     # A secret key that's used to generate certain security-related tokens
     secret: ThisTokenIsNotSoSecretChangeIt

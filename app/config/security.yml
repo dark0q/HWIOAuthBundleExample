@@ -11,6 +11,8 @@ security:
     providers:
         fos_userbundle:
             id: fos_user.user_provider.username
+        hwi:
+            id: hwi_oauth.user.provider
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
@@ -27,6 +29,15 @@ security:
 
             logout:       true
             anonymous:    true
+            oauth:
+                resource_owners:
+                    my_custom_server:          "/check-server"
+                login_path:        /login
+                use_forward:       false
+                failure_path:      /login
+
+                oauth_user_provider:
+                    service: my.oauth_aware.user_provider.service
 
     access_control:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
